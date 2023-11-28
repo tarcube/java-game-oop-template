@@ -6,6 +6,8 @@ import java.util.*;
 import javax.sound.sampled.*;
 import java.io.*;
 
+// -
+
 public class Demo extends Canvas implements Runnable {
     public static int WIDTH = 800, HEIGHT = 600;
     private Thread thread;
@@ -29,11 +31,11 @@ public class Demo extends Canvas implements Runnable {
         handler.tick(ticks);
     }
 
-       public synchronized void start() {
-       thread = new Thread(this);
-       thread.start();
-       running = true;
-   }
+    public synchronized void start() {
+        thread = new Thread(this);
+        thread.start();
+        running = true;
+    }
 
     public synchronized void stop() {
         try {
@@ -97,6 +99,8 @@ public class Demo extends Canvas implements Runnable {
     }
 }
 
+// -
+
 class KeyInput extends KeyAdapter {
     private Handler handler;
 
@@ -108,11 +112,13 @@ class KeyInput extends KeyAdapter {
 
     public static void clickSFX() {
         try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Demo.class.getResource("temporaryPlaceholder.mp3"));
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Demo.class.getResource("colon_3.wav"));
             Clip sound = AudioSystem.getClip();
             sound.open(audioInputStream);
             sound.start();
-        } catch (Exception err) {}
+        } catch (Exception err) {
+            System.out.println(err);
+        }
     }
 
     @Override
@@ -138,6 +144,8 @@ class KeyInput extends KeyAdapter {
     }
 }
 
+// -
+
 class Handler {
     LinkedList<GameObject> object = new LinkedList<GameObject>();
     
@@ -159,6 +167,8 @@ class Handler {
     public void removeObject(GameObject object) {this.object.remove(object);}
 }
 
+// -
+
 class Window extends Canvas {
     Window (int width, int height, String title, Demo Demo) {
         JFrame frame = new JFrame(title);
@@ -173,6 +183,8 @@ class Window extends Canvas {
         Demo.start();
     }
 }
+
+// -
 
 abstract class GameObject {
     protected int x, y;
@@ -202,6 +214,8 @@ abstract class GameObject {
     public int getVelY() {return velY;}
 }
 
+// -
+
 class Background extends GameObject {
     static int w = Demo.WIDTH/4;
     static int h = Demo.HEIGHT/4;
@@ -223,6 +237,8 @@ class Background extends GameObject {
         }
     }
 }
+
+// -
 
 enum ID {
     Background();
