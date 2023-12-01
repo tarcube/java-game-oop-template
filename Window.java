@@ -7,7 +7,7 @@ import javax.sound.sampled.*;
 import java.io.*;
 
 class Window extends Canvas {
-    Window (int width, int height, String title, Pong Pong) {
+    Window(int width, int height, String title, Pong Pong) {
         JFrame frame = new JFrame(title);
         frame.setPreferredSize(new Dimension(width, height));
         frame.setMaximumSize(new Dimension(width, height));
