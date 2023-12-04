@@ -8,7 +8,7 @@ import java.io.*;
 
 public class Pong extends Canvas implements Runnable {
     public static int WIDTH = 800, HEIGHT = 600;
-    private final int BUFFER = 42;
+    private final int SPACEX = 14, SPACEY = 37;
     private Thread thread;
     private boolean running = false;
     private Handler handler;
@@ -22,7 +22,7 @@ public class Pong extends Canvas implements Runnable {
     public Pong() {
         handler = new Handler();
         this.addKeyListener(new KeyInput(handler));
-        new Window(WIDTH, HEIGHT+BUFFER, "Pong", this);
+        new Window(WIDTH+SPACEX, HEIGHT+SPACEY, "Pong", this);
         handler.addObject(new Ball(100, 100, 20, 20, ID.Ball, 4, 4, 0, 0));
     }
 
