@@ -24,6 +24,9 @@ public class Pong extends Canvas implements Runnable {
         this.addKeyListener(new KeyInput(handler));
         new Window(WIDTH+SPACEX, HEIGHT+SPACEY, "Pong", this);
         handler.addObject(new Ball(100, 100, 20, 20, ID.Ball, 4, 4, 0, 0));
+        handler.addObject(new Ball(100, 100, 30, 30, ID.Ball, 8, 8, 0, 0));
+        handler.addObject(new Ball(200, 200, 10, 10, ID.Ball, 6, 6, 0, 0));
+        handler.addObject(new Paddle(0, 100, 20, 100, ID.Paddle1, 0, 4, 0, 0));
     }
 
     private void tick(int ticks) {

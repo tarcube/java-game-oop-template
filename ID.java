@@ -7,5 +7,7 @@ import javax.sound.sampled.*;
 import java.io.*;
 
 enum ID {
-    Ball();
+    Ball(),
+    Paddle1(),
+    Paddle2();
 }
